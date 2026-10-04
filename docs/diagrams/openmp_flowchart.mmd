@@ -1,0 +1,10 @@
+graph TD
+    A[Start OpenMP Execution] --> B[Calculate Work Metrics<br>nnz per slice]
+    B --> C[Sort Slices Descending<br>Weight-Based Sorting]
+    C --> D["omp parallel for<br>schedule(runtime), dynamic"]
+    D --> E{Thread Fetches Next Slice}
+    E --> F[Multiply slice<br>sparse COO or dense path by density]
+    F --> G{More Slices?}
+    G -->|Yes| E
+    G -->|No| H[Thread Idle / Join]
+    H --> I[End OpenMP Execution]

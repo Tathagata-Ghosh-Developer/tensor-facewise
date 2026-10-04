@@ -1,0 +1,7 @@
+graph TD
+    A[Tensor Generation<br>SimTensor] --> B[Storage<br>COO/ELL]
+    B --> C[Preprocessing<br>Density threshold]
+    C --> D[Serial]
+    C --> E[OpenMP]
+    C --> F[CUDA]
+    C --> G[Hybrid]

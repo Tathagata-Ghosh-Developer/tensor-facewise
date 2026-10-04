@@ -1,0 +1,9 @@
+graph TD
+    A[Start Hybrid Execution] --> B[Evaluate Sparsity / Profile Slices]
+    B --> C[Compute Separation<br>Target: gpu_ratio %]
+    C --> D[Greedy Assign Sparse to CPU<br>Assign Dense to GPU]
+    D --> E[Launch CPU Pool<br>std::async OpenMP]
+    D --> F[Launch GPU Stream<br>cudaMemcpyAsync & Compute]
+    E --> G[Join Threads<br>async.wait]
+    F --> G
+    G --> H[End Hybrid Execution]
