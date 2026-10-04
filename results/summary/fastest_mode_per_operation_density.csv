@@ -1,0 +1,13 @@
+density_combo,operation,mode,time_sec
+dense_dense,hadamard,cuda,25.300479
+dense_dense,qr,omp,13.085566
+dense_dense,svd,omp,16.4706605
+dense_sparse,hadamard,hybrid,18.804805
+dense_sparse,qr,omp,12.8092775
+dense_sparse,svd,omp,16.069779
+sparse_dense,hadamard,omp,17.474861
+sparse_dense,qr,omp,12.6558935
+sparse_dense,svd,omp,16.035243
+sparse_sparse,hadamard,omp,0.374689
+sparse_sparse,qr,omp,3.7521034999999996
+sparse_sparse,svd,omp,4.67765

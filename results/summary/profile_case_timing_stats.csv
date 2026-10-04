@@ -1,0 +1,6 @@
+index,case,mode,min,median,max
+0,case1_sparse_omp,omp,0.743428,1.050532,4.303355
+1,case2_dense_compare,cuda,807.653542,807.653542,807.653542
+2,case2_dense_compare,serial,2992.529227,2992.529227,2992.529227
+3,case3_large_sparse_omp,omp,2.227118,3.418097,14.396994
+4,case4_hybrid_ratio_scan,hybrid,70.420964,70.517292,71.129702
