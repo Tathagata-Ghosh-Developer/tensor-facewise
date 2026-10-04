@@ -1,0 +1,29 @@
+# Build outputs
+build/
+bin/
+*.o
+tensor_app_cpu
+tensor_app_cuda
+
+# SLURM / run outputs
+*.out
+*.err
+slurm-*.out
+output.csv
+artifacts/
+
+# Profiler outputs
+*.nsys-rep
+*.ncu-rep
+*.sqlite
+
+# Data
+data/
+*.bin
+
+# Python
+__pycache__/
+.venv/
+
+# Local study notes
+notes/
