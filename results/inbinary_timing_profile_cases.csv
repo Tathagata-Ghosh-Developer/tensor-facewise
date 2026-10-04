@@ -1,0 +1,6 @@
+case,mode,gpu_ratio,time_sec_app,measured_pass_total_sec,dense_slices,sparse_slices,gpu_assigned_slices,cpu_assigned_slices,warmup_passes
+case2_dense_compare,serial,NA,2235.78,745.26,12,0,0,12,2
+case2_dense_compare,cuda,NA,49.8721,16.6103,12,0,12,0,2
+case4_hybrid_ratio_scan,hybrid,0.3,67.6802,22.2412,0,16,0,16,2
+case4_hybrid_ratio_scan,hybrid,0.5,67.1515,22.1858,0,16,0,16,2
+case4_hybrid_ratio_scan,hybrid,0.7,67.0917,22.1092,0,16,0,16,2

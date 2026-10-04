@@ -1,0 +1,11 @@
+Pass/fail summary printed by scripts/slurm_debug.sh on the cluster
+(copied from the job log; the full log is not included).
+
+correctness  50x50x3, sparse/dense combinations, abs tol 1e-8 vs serial   PASS=60 FAIL=0
+debug        1000x1000x10, 4 density combinations, abs tol 1e-6 vs serial PASS=80 FAIL=0
+determinism  two serial runs of the same input, abs tol 1e-12            PASS=1  FAIL=0
+Total failures: 0
+
+Note: the QR and SVD checks in both modes only assert that the run
+completes and prints a timing line; their factors are not compared
+numerically. Only the face-wise product output is compared element-wise.
