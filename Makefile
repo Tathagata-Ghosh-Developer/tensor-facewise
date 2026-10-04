@@ -17,13 +17,19 @@ CUDA_HOME ?= $(shell nvcc_path=$$(command -v $(NVCC) 2>/dev/null); if [ -n "$$nv
 CUDA_RPATH_DIRS := $(CUDA_HOME)/lib64 $(CUDA_HOME)/targets/x86_64-linux/lib /usr/local/cuda/lib64 /usr/local/cuda-12.6/lib64 /usr/local/cuda-12.6/targets/x86_64-linux/lib
 CUDA_RPATH_FLAGS := $(foreach d,$(CUDA_RPATH_DIRS),-Xlinker -rpath -Xlinker $(d))
 
-.PHONY: all cpu cuda report-assets clean format
+.PHONY: all cpu cuda check report-assets clean format
 
 all: cpu
 
 cpu: $(TARGET_CPU)
 
 cuda: $(TARGET_CUDA)
+
+# CPU-only correctness check: every mode against an independent pure-Python
+# face-wise product (in a CPU build, cuda/hybrid exercise their partitioning
+# code with the serial kernel standing in for the GPU).
+check: $(TARGET_CPU)
+	python3 scripts/reference_check.py --bin ./$(TARGET_CPU) --workdir build/check
 
 report-assets:
 	python3 $(REPORT_ASSET_SCRIPT)
@@ -36,3 +42,4 @@ $(TARGET_CUDA): $(CUDA_SOURCES)
 
 clean:
 	rm -f $(TARGET_CPU) $(TARGET_CUDA)
+	rm -rf build
